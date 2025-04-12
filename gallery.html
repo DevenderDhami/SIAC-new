@@ -28,6 +28,50 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        .gallery-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .modal-content {
+            background: transparent;
+            border: none;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            padding: 10px;
+            color: #fff;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+    </style>
 
 </head>
 
@@ -42,7 +86,7 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.html" class="active">Home<br></a></li>
+                    <li><a href="index.html" class="">Home<br></a></li>
                     <li class="dropdown"><a href="#"><span>About us</span> <i
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
@@ -68,6 +112,7 @@
                         </ul>
                     </li>
                     <li><a href="aaprovals.html">Approvals</a></li>
+                    <li><a class="active" href="gallery.html">gallery</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="career.html">Work With Us</a></li>
                 </ul>
@@ -77,9 +122,27 @@
     </header>
 
     <main class="main">
-        <div class="container mx-auto" style="min-height: 60vh;">
-            content goes here..................
+        <div class="container py-5">
+            <div class="section_title">
+                <h2 class="fw-bold">Gallery</h2>
+            </div>
+            <div class="row g-4" id="galleryContainer"></div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body text-center position-relative">
+                        <button class="nav-btn prev-btn" onclick="prevImage()">&#8249;</button>
+                        <img id="modalImage" class="modal-img" src="" alt="Gallery Image">
+                        <button class="nav-btn next-btn" onclick="nextImage()">&#8250;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </main>
 
 
@@ -143,10 +206,63 @@
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Preloader -->
-    <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
+
+
+    <script>
+        const images = [
+            "assets/img/gallery/img1001.jpg",
+            "assets/img/gallery/img1003.jpg",
+            "assets/img/gallery/img1005.jpg",
+            "assets/img/gallery/img1007.jpg",
+            "assets/img/gallery/img1014.jpg",
+            "assets/img/gallery/img1016.jpg",
+            "assets/img/gallery/img1018.jpg",
+            "assets/img/gallery/img1020.jpg",
+            "assets/img/gallery/img1027.jpg",
+            "assets/img/gallery/img1029.jpg",
+            "assets/img/gallery/img213.jpg",
+            "assets/img/gallery/img215.jpg",
+            "assets/img/gallery/img217.jpg",
+            "assets/img/gallery/img219.jpg",
+            "assets/img/gallery/img236.jpg",
+            "assets/img/gallery/img238.jpg",
+        ];
+        let currentIndex = 0;
+
+        function renderGallery() {
+            const container = document.getElementById("galleryContainer");
+            container.innerHTML = images.map((src, index) => `
+                <div class="col-lg-3 col-md-4 col-6">
+                  <img src="${src}" class="gallery-img" onclick="openModal(${index})" alt="Gallery Image">
+                </div>
+              `).join("");
+        }
+
+        function openModal(index) {
+            currentIndex = index;
+            updateModalImage();
+            const modal = new bootstrap.Modal(document.getElementById("imageModal"));
+            modal.show();
+        }
+
+        function updateModalImage() {
+            document.getElementById("modalImage").src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateModalImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        }
+
+        renderGallery();
+    </script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>

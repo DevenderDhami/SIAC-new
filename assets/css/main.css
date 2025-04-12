@@ -49,13 +49,37 @@
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
+.theme-clr{
+  color: #7d3c98;
+}
+.theme-bg{
+  background: #7d3c98;
+}
+
+.theme-bg2 {
+ background: #d5bddb;
+background: linear-gradient(90deg, rgba(213, 189, 219, 1) 0%, rgba(123, 101, 135, 1) 50%, rgba(61, 17, 17, 1) 100%);
+}
+
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+.text-justify{
+  text-align: justify;
+}
+
+#header{
+  background: #d5bddb;
+  background: linear-gradient(90deg, rgba(213, 189, 219, 1) 0%, rgb(161, 137, 174) 50%, rgb(223, 219, 219) 100%);
+  }
+#footer{
+  background: #f0e2f4;
+  background: linear-gradient(90deg,  rgb(24, 20, 27) 50%, rgb(255, 254, 254) 100%,rgba(213, 189, 219, 1) 0%,);  
+  }
 
 .marquee-container {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  background: #f8f9fa;
+  background: linear-gradient(90deg, rgba(213, 189, 219, 1) 0%, rgba(123, 101, 135, 1) 50%, rgb(104, 108, 108) 100%);
   padding: 20px 0;
 }
 
@@ -868,7 +892,6 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
   scroll-margin-top: 900px;
   overflow: clip;
 }
@@ -885,7 +908,7 @@ section,
 # Global Section Titles
 --------------------------------------------------------------*/
 .section-title {
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
   position: relative;
 }
 
