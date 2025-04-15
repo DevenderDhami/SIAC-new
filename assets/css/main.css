@@ -49,37 +49,40 @@
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
-.theme-clr{
+.theme-clr {
   color: #7d3c98;
 }
-.theme-bg{
+
+.theme-bg {
   background: #7d3c98;
 }
 
 .theme-bg2 {
- background: #d5bddb;
-background: linear-gradient(90deg, rgba(213, 189, 219, 1) 0%, rgba(123, 101, 135, 1) 50%, rgba(61, 17, 17, 1) 100%);
+  background: #FFA500;
+  background: linear-gradient(90deg, rgba(255, 165, 0, 1) 22%, rgba(255, 117, 24, 1) 60%, rgba(255, 165, 0, 1) 100%);
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-.text-justify{
+.text-justify {
   text-align: justify;
 }
 
-#header{
-  background: #d5bddb;
-  background: linear-gradient(90deg, rgba(213, 189, 219, 1) 0%, rgb(161, 137, 174) 50%, rgb(223, 219, 219) 100%);
-  }
-#footer{
-  background: #f0e2f4;
-  background: linear-gradient(90deg,  rgb(24, 20, 27) 50%, rgb(255, 254, 254) 100%,rgba(213, 189, 219, 1) 0%,);  
-  }
+#header {
+  background: #F08000;
+  background: linear-gradient(90deg, rgba(240, 128, 0, 1) 29%, rgba(255, 95, 21, 1) 49%, rgba(255, 117, 24, 1) 65%, rgba(240, 128, 0, 1) 100%);
+}
+
+#footer {
+  background: #FFA500;
+  background: linear-gradient(90deg, rgba(255, 165, 0, 1) 22%, rgba(255, 117, 24, 1) 60%, rgba(255, 165, 0, 1) 100%);
+}
 
 .marquee-container {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  background: linear-gradient(90deg, rgba(213, 189, 219, 1) 0%, rgba(123, 101, 135, 1) 50%, rgb(104, 108, 108) 100%);
+  background: #e87731;
+  background: linear-gradient(90deg, rgba(232, 119, 49, 1) 22%, rgba(255, 157, 92, 1) 60%, rgba(128, 124, 124, 1) 100%);
   padding: 20px 0;
 }
 
